@@ -2,8 +2,10 @@ class ControleOpcoes:
     def __init__(self):
         self.itens = []
 
-    def inserirItem(self,codigo,descricao, acrescimo,desconto, total):
+    def inserirItem(self, codigo, descricao, acrescimo, desconto,total):
         item = [codigo, descricao, acrescimo, desconto, total]
+        item[2]=0
+        item[3]=0
         self.itens.append(item)
 
     def acrescimoItem(self, codigo, acrescimo):
@@ -53,9 +55,9 @@ class ControleOpcoes:
         for item in self.itens:
             print(f"Código: {item[0]}, Descrição: {item[1]}, Total: {item[4]}, Acréscimo: {item[2]}, Desconto: {item[3]}")
 
-        total_itens += item[4]
-        total_acrescimo += item[2]
-        total_desconto += item[3]
+            total_itens += item[4]
+            total_acrescimo += item[2]
+            total_desconto += item[3]
 
         valor_total = total_itens + total_acrescimo - total_desconto
 
