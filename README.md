@@ -31,35 +31,3 @@ Para usar este sistema em seu projeto, siga estas etapas:
 3. **Executar o Programa**: Execute o programa Python, geralmente usando o comando `python nomedoarquivo.py` no terminal.
 
 4. **Menu Interativo**: Siga as opções apresentadas no menu interativo para inserir itens, aplicar acréscimos, descontos, e finalizar a venda.
-
-## Exemplo em Python
-
-```python
-# Exemplo de uso do Sistema de Controle de Desconto / Acréscimos para Itens de Carrinho
-
-# Importe as classes ControleOpcoes e Item do seu arquivo Python
-from seu_arquivo import ControleOpcoes, Item
-
-# Crie uma instância do ControleOpcoes
-controle = ControleOpcoes()
-
-# Use as funções disponíveis para gerenciar itens e realizar operações
-
-# Exemplo de inserção de um novo item
-novo_item = Item("001", "Produto 1", 10.0, 2.0, 50.0)
-controle.inserirItem(novo_item)
-
-# Exemplo de aplicação de acréscimo a um item
-controle.acrescimoItem("001", 5.0)
-
-# Exemplo de aplicação de desconto a um item
-controle.descontoItem("001", 3.0)
-
-# Exemplo de aplicação de acréscimo total
-controle.acrescimoTotal(20.0)
-
-# Exemplo de aplicação de desconto total
-controle.descontoTotal(10.0)
-
-# Finalização da venda e exibição dos resultados
-controle.finalizarVenda()
