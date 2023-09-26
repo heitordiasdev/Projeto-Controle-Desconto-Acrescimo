@@ -2,15 +2,6 @@ class ControleOpcoes:
     def __init__(self):
         self.itens = []
 
-    def condicaoVerdadeiraDescontoItem(self, codigo, desconto):
-        for item in self.itens:
-            if item[0] == codigo:
-                if desconto < item[4]:
-                    item[3] = item[3] - desconto
-                    item[4] = item[4] - desconto
-                else:
-                    print("O desconto deve ser menor que o valor do item!")
-
     def inserirItem(self, codigo, descricao, acrescimo, desconto,total):
         item = [codigo, descricao, acrescimo, desconto, total]
         item[2]=0
