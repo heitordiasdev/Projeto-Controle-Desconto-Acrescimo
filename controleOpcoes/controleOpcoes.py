@@ -2,6 +2,15 @@ class ControleOpcoes:
     def __init__(self):
         self.itens = []
 
+    def condicaoVerdadeiraDescontoItem(self, codigo, desconto):
+        for item in self.itens:
+            if item[0] == codigo:
+                if desconto < item[4]:
+                    item[3] = item[3] - desconto
+                    item[4] = item[4] - desconto
+                else:
+                    print("O desconto deve ser menor que o valor do item!")
+
     def inserirItem(self, codigo, descricao, acrescimo, desconto,total):
         item = [codigo, descricao, acrescimo, desconto, total]
         item[2]=0
@@ -16,13 +25,17 @@ class ControleOpcoes:
 
     def descontoItem(self, codigo, desconto):
         for item in self.itens:
-            if item[0] == codigo:
-                item[3] = item[3]-desconto
-                item[4] = item[4]-desconto
+            if item[0] == codigo and desconto < item[4]:
+                item[3] = item[3] - desconto
+                item[4] = item[4] - desconto
+            else:
+                print("O desconto deve ser menor que o valor do item!")
 
     def acrescimoTotal(self, acrescimo):
         total = sum(item[4] for item in self.itens)
+
         if acrescimo > sum(item[2] for item in self.itens):
+
             for item in self.itens:
                 proporcao_item = item[4] / total
                 acrescimo_item = acrescimo * proporcao_item
@@ -30,7 +43,7 @@ class ControleOpcoes:
                 item[4] += acrescimo_item
 
         else:
-            print("O valor digitado é menor do que o total dos acrescimos!")
+            print("O valor digitado é menor do que o valor total dos itens!")
 
     def descontoTotal(self, desconto):
         total = sum(item[4] for item in self.itens)
@@ -44,7 +57,7 @@ class ControleOpcoes:
                 item[4] -= desconto_item
 
         else:
-            print("O valor digitado é menor do que o total dos descontos!")
+            print("O valor digitado é maior do que o valor total dos itens!")
 
     def finalizarVenda(self):
         print("\nItens do Carrinho:")
